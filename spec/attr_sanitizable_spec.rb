@@ -30,6 +30,18 @@ describe AttrSanitizable do
     }.to raise_error(ArgumentError, "Unable to perform 'not_defined' on a variable of type 'String'")
   end
 
+  describe "when nil" do
+    it "skips sanitizables" do
+      class User < ActiveRecord::Base
+        attr_sanitizable :email, with: [:strip]
+      end
+
+      user = User.new
+      user.email = nil
+      user.email.should eq(nil)
+    end
+  end
+
   it "custom functions" do
     class String
       def troll

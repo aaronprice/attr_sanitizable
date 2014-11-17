@@ -13,11 +13,13 @@ module AttrSanitizable
 
       attributes.each do |field|
         define_method "#{field}=" do |value|
-          actions.each do |action|
-            if !value.respond_to?(action)
-              raise ArgumentError, "Unable to perform '#{action}' on a variable of type '#{value.class.name}'"
+          if !value.nil?
+            actions.each do |action|
+              if !value.respond_to?(action)
+                raise ArgumentError, "Unable to perform '#{action}' on a variable of type '#{value.class.name}'"
+              end
+              value = value.try(action)
             end
-            value = value.try(action)
           end
           write_attribute(field, value)
         end
