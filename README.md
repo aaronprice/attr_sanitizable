@@ -2,7 +2,7 @@
 
 ### Usage
 
-```
+```ruby
 class MyModel < ActiveRecord::Base
   attr_sanitizable :email, with: [:strip, :downcase]
 end
