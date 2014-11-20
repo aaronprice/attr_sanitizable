@@ -43,7 +43,7 @@ user.email = "nobody@example.com"
 
 ### Contributing
 
-Feel free to contribute features or bug fixes. Simple fork the repo, implement your feature/bugfix and submit a pull request. Please ensure you've properly tested your feature/fix before submitting a pull request.
+Feel free to contribute features or bug fixes. Simply fork the repo, implement your feature/bugfix, and submit a pull request. Please ensure you've properly tested your feature/fix before submitting a pull request.
 
 
 ### License
