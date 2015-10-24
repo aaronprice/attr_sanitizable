@@ -6,7 +6,7 @@ describe AttrSanitizable do
 
   it "success" do
     user.email = " NOBODY@EXAMPLE.COM"
-    user.email.should eq("nobody@example.com")
+    expect(user.email).to eq("nobody@example.com")
   end
 
   it "function sequence matters" do
@@ -16,7 +16,7 @@ describe AttrSanitizable do
 
     user = User.new
     user.email = "NoBodY@ExAMPlE.cOM"
-    user.email.should eq("NOBODY@EXAMPLE.COM")
+    expect(user.email).to eq("NOBODY@EXAMPLE.COM")
   end
 
   it "function doesn't exist" do
@@ -38,7 +38,7 @@ describe AttrSanitizable do
 
     user = User.new
     user.email = nil
-    user.email.should eq(nil)
+    expect(user.email).to eq(nil)
   end
 
   it "custom functions" do
@@ -54,7 +54,7 @@ describe AttrSanitizable do
 
     user = User.new
     user.email = "nobody@example.com"
-    user.email.should eq("nobody@ex@mple.com")
+    expect(user.email).to eq("nobody@ex@mple.com")
   end
 
   it "fails" do
