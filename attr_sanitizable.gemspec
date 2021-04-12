@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency('sqlite3', '~> 1.3')
   spec.add_development_dependency('rspec-rails', '~> 3.3', '>= 3.3.3')
-  spec.add_development_dependency('rake', '~> 0.9', '>= 0.9')
+  spec.add_development_dependency('rake', '>= 0.9', '~> 12.3')
 end
