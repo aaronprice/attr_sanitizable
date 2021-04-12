@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'attr_sanitizable'
 
 class User < ActiveRecord::Base

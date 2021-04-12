@@ -8,7 +8,7 @@ A gem for sanitizing data into your database.
 
 The best way to install is to add it to your Gemfile via:
 ```
-gem 'attr_sanitizable', '~> 0.0.2'
+gem 'attr_sanitizable'
 ```
 
 ### Usage
@@ -16,6 +16,9 @@ gem 'attr_sanitizable', '~> 0.0.2'
 ```ruby
 class MyModel < ActiveRecord::Base
   attr_sanitizable :email, with: [:strip, :downcase]
+
+  # Send actions that have params as follows
+  attr_sanitizable :phone, with: [[:scan, /\d/], :join, [:sub, /^1/, '']]
 end
 
 m = MyModel.new

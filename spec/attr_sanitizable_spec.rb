@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe AttrSanitizable do
@@ -7,6 +8,15 @@ describe AttrSanitizable do
   it "success" do
     user.email = " NOBODY@EXAMPLE.COM"
     expect(user.email).to eq("nobody@example.com")
+  end
+
+  it "actions with params" do
+    class User < ActiveRecord::Base
+      attr_sanitizable :phone, with: [[:scan, /\d/], :join, [:sub, /^1/, '']]
+    end
+
+    user.phone = "+1 (555) 555-5555"
+    expect(user.phone).to eq("5555555555")
   end
 
   it "function sequence matters" do
